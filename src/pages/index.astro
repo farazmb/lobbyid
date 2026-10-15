@@ -1,11 +1,1162 @@
----
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+import type {  } from "astro";
+
+const categories = [
+  { id: "all", label: "ALL NAMES" },
+  { id: "tryhard", label: "TRYHARD" },
+  { id: "dark", label: "DARK" },
+  { id: "girls", label: "GIRLS" },
+  { id: "duo", label: "DUO" },
+  { id: "clan", label: "CLAN" },
+  { id: "short", label: "SHORT" },
+  { id: "symbols", label: "SYMBOLS" },
+];
+
+const names = [
+  { name: "亗VEX亗", category: "tryhard" },
+  { name: "乂RAVEN乂", category: "tryhard" },
+  { name: "么PHANTOMツ", category: "tryhard" },
+  { name: "亗NO MERCY亗", category: "tryhard" },
+  { name: "乂HEADSHOT", category: "tryhard" },
+  { name: "F4TAL々", category: "tryhard" },
+  { name: "亗REAPER", category: "tryhard" },
+  { name: "NOTYOURKILL", category: "tryhard" },
+
+  { name: "VOIDWALKER", category: "dark" },
+  { name: "☠︎ NIGHTFALL", category: "dark" },
+  { name: "DΞMON", category: "dark" },
+  { name: "DEAD SILENCE", category: "dark" },
+  { name: "GRIM.exe", category: "dark" },
+  { name: "DARKMATTER", category: "dark" },
+  { name: "LAST BREATH", category: "dark" },
+  { name: "SOULLESS", category: "dark" },
+
+  { name: "LunaVex", category: "girls" },
+  { name: "MistyBloom", category: "girls" },
+  { name: "VelvetFang", category: "girls" },
+  { name: "NovaBelle", category: "girls" },
+  { name: "Nyxie", category: "girls" },
+  { name: "CherryReign", category: "girls" },
+  { name: "MoonlitRogue", category: "girls" },
+  { name: "VioletVenom", category: "girls" },
+
+  { name: "HisCover", category: "duo" },
+  { name: "HerFire", category: "duo" },
+  { name: "KingOfUs", category: "duo" },
+  { name: "QueenOfUs", category: "duo" },
+  { name: "OneTap", category: "duo" },
+  { name: "TwoKills", category: "duo" },
+  { name: "LootBuddy", category: "duo" },
+  { name: "ReviveMe", category: "duo" },
+
+  { name: "VOID々", category: "clan" },
+  { name: "RΞBORN", category: "clan" },
+  { name: "ROGUE UNIT", category: "clan" },
+  { name: "ZERO HOUR", category: "clan" },
+  { name: "WARPATH", category: "clan" },
+  { name: "NO QUARTER", category: "clan" },
+  { name: "IRON WOLVES", category: "clan" },
+  { name: "LAST STAND", category: "clan" },
+
+  { name: "ZYRO", category: "short" },
+  { name: "KΛI", category: "short" },
+  { name: "NØX", category: "short" },
+  { name: "VYRE", category: "short" },
+  { name: "R1OT", category: "short" },
+  { name: "KRYPT", category: "short" },
+  { name: "Z3RO", category: "short" },
+  { name: "ONYX", category: "short" },
+
+  { name: "亗", category: "symbols" },
+  { name: "乂", category: "symbols" },
+  { name: "々", category: "symbols" },
+  { name: "么", category: "symbols" },
+  { name: "ツ", category: "symbols" },
+  { name: "〆", category: "symbols" },
+  { name: "彡", category: "symbols" },
+  { name: "メ", category: "symbols" },
+  { name: "『 』", category: "symbols" },
+  { name: "乄", category: "symbols" },
+  { name: "ঔ", category: "symbols" },
+  { name: "ฬ", category: "symbols" },
+];
+
+const siteUrl = "https://example.com";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#171a13" />
+    <meta
+      name="description"
+      content="Find your next PUBG Mobile gaming name. Browse tryhard, dark, girls, duo, clan and short usernames, plus stylish gaming symbols. Copy your favourite in one click."
+    />
+    <meta
+      name="keywords"
+      content="PUBG names, PUBG name generator, PUBG Mobile names, gaming usernames, PUBG symbols, clan names, tryhard names"
+    />
+    <title>LobbyID — PUBG Names & Gaming IDs</title>
+    <link rel="canonical" href={siteUrl} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="LobbyID home">
+          <span class="brand-mark">L<span>ID</span></span>
+          <span class="brand-copy">
+            <strong>LOBBY<span>ID</span></strong>
+            <small>BATTLEGROUNDS ID SYSTEM</small>
+          </span>
+        </a>
+
+        <div class="topbar-right">
+          <span class="status-dot"></span>
+          <span class="status-text">PLAYER READY</span>
+        </div>
+      </header>
+
+      <main>
+        <section class="intro">
+          <div class="intro-copy">
+            <div class="eyebrow">
+              <span class="eyebrow-line"></span>
+              YOUR NEXT DROP STARTS HERE
+            </div>
+            <h1>FIND YOUR <span>GAME ID.</span></h1>
+            <p>Names that stand out in the lobby. Pick one, copy it, get in the game.</p>
+          </div>
+
+          <div class="intro-stamp" aria-hidden="true">
+            <span>PLAYER</span>
+            <strong>01</strong>
+            <span>UNKNOWN</span>
+          </div>
+        </section>
+
+        <section class="generator" aria-label="Gaming name generator">
+          <div class="search-box">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="10.8" cy="10.8" r="6.8"></circle>
+              <path d="m16 16 4.2 4.2"></path>
+            </svg>
+            <input
+              id="nameSearch"
+              type="search"
+              placeholder="Search names, e.g. Raven, Luna, Void..."
+              autocomplete="off"
+              aria-label="Search gaming names"
+            />
+            <kbd>SEARCH</kbd>
+          </div>
+
+          <button class="random-button" id="randomButton" type="button">
+            <span aria-hidden="true">⤨</span>
+            RANDOM PICK
+          </button>
+        </section>
+
+        <section class="names-section" aria-label="Gaming names">
+          <div class="section-heading">
+            <div class="section-title">
+              <span class="section-marker"></span>
+              <h2>NAME INVENTORY</h2>
+              <span class="item-count" id="itemCount">{names.length} ITEMS</span>
+            </div>
+            <span class="section-hint">SELECT A NAME TO COPY</span>
+          </div>
+
+          <nav class="category-tabs" aria-label="Filter names by category">
+            {categories.map((category) => (
+              <button
+                type="button"
+                class:list={["category-tab", category.id === "all" && "active"]}
+                data-filter={category.id}
+                aria-pressed={category.id === "all" ? "true" : "false"}
+              >
+                {category.label}
+              </button>
+            ))}
+          </nav>
+
+          <div class="name-grid" id="nameGrid">
+            {names.map((item) => (
+              <article
+                class="name-card"
+                data-category={item.category}
+                data-name={item.name.toLowerCase()}
+              >
+                <div class="card-topline">
+                  <span class="item-indicator"></span>
+                  <span class="card-category">{item.category}</span>
+                  <span class="card-number">ID</span>
+                </div>
+                <div class="name-text" title={item.name}>{item.name}</div>
+                <button
+                  class="copy-button"
+                  type="button"
+                  data-copy={item.name}
+                  aria-label={`Copy ${item.name}`}
+                >
+                  <svg viewBox="0 0 20 20" aria-hidden="true">
+                    <rect x="6.5" y="6.5" width="10" height="11" rx="1.5"></rect>
+                    <path d="M13.5 6.5V4.8A1.8 1.8 0 0 0 11.7 3H4.8A1.8 1.8 0 0 0 3 4.8v6.9a1.8 1.8 0 0 0 1.8 1.8h1.7"></path>
+                  </svg>
+                  <span>COPY ID</span>
+                </button>
+              </article>
+            ))}
+          </div>
+
+          <div class="empty-state" id="emptyState" hidden>
+            <span class="empty-icon">⌕</span>
+            <strong>NO MATCH FOUND</strong>
+            <p>Try another search or choose a different category.</p>
+            <button type="button" id="clearSearch">RESET FILTERS</button>
+          </div>
+
+          <div class="results-footer">
+            <span><span class="status-dot"></span> ALL NAMES READY TO COPY</span>
+            <span>LOBBYID <span class="footer-separator">/</span> PLAYER TOOLKIT</span>
+          </div>
+        </section>
+
+        <section class="quick-note">
+          <span class="note-icon">i</span>
+          <p>
+            Some games restrict special characters. If a name doesn't work in PUBG Mobile,
+            try a simpler version.
+          </p>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <span>LOBBYID © 2026</span>
+        <span>BUILT FOR YOUR NEXT DROP.</span>
+      </footer>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
+
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #171a13;
+    --panel: #20241b;
+    --panel-light: #282d21;
+    --border: #3a4030;
+    --muted: #969b88;
+    --text: #f0f0e7;
+    --accent: #d6e044;
+    --accent-dark: #aab52c;
+    --font-display: "Barlow Condensed", Impact, sans-serif;
+    --font-body: "DM Sans", Arial, sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    min-width: 320px;
+    background: var(--bg);
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--text);
+    font-family: var(--font-body);
+    background:
+      linear-gradient(rgba(23, 26, 19, 0.95), rgba(23, 26, 19, 0.98)),
+      repeating-linear-gradient(
+        0deg,
+        transparent 0,
+        transparent 39px,
+        rgba(214, 224, 68, 0.045) 40px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent 0,
+        transparent 39px,
+        rgba(214, 224, 68, 0.045) 40px
+      );
+  }
+
+  button,
+  input {
+    font: inherit;
+  }
+
+  button {
+    color: inherit;
+  }
+
+  button:focus-visible,
+  input:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  .page-shell {
+    width: min(1220px, calc(100% - 40px));
+    margin: 0 auto;
+  }
+
+  .topbar {
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .brand-mark {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    background: var(--accent);
+    color: #171a13;
+    font: 900 19px var(--font-display);
+    letter-spacing: -1px;
+    clip-path: polygon(0 0, 100% 0, 100% 78%, 78% 100%, 0 100%);
+  }
+
+  .brand-mark span {
+    color: #4d5420;
+  }
+
+  .brand-copy {
+    display: grid;
+    gap: 1px;
+  }
+
+  .brand-copy strong {
+    font: 800 25px/1 var(--font-display);
+    letter-spacing: 1.4px;
+  }
+
+  .brand-copy strong span {
+    color: var(--accent);
+  }
+
+  .brand-copy small {
+    color: var(--muted);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.35px;
+  }
+
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: #c1c6b1;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+  }
+
+  .status-dot {
+    display: inline-block;
+    flex: 0 0 auto;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 9px rgba(214, 224, 68, 0.25);
+  }
+
+  .intro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 138px;
+    padding: 22px 0 18px;
+  }
+
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+  }
+
+  .eyebrow-line {
+    width: 23px;
+    height: 2px;
+    background: var(--accent);
+  }
+
+  h1,
+  h2,
+  p {
+    margin: 0;
+  }
+
+  h1 {
+    margin-top: 5px;
+    font: 900 clamp(32px, 4vw, 49px)/0.98 var(--font-display);
+    letter-spacing: 0.4px;
+  }
+
+  h1 span {
+    color: var(--accent);
+  }
+
+  .intro-copy > p {
+    margin-top: 8px;
+    color: #aeb3a2;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .intro-stamp {
+    width: 88px;
+    height: 88px;
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    border: 1px solid #454b35;
+    background: linear-gradient(145deg, #282d20, #1d2118);
+    transform: rotate(3deg);
+  }
+
+  .intro-stamp span {
+    color: #a0a58f;
+    font: 700 8px var(--font-display);
+    letter-spacing: 1.6px;
+  }
+
+  .intro-stamp strong {
+    color: var(--accent);
+    font: 900 43px/0.95 var(--font-display);
+  }
+
+  .generator {
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+
+  .search-box {
+    min-width: 0;
+    flex: 1;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 0 13px;
+    border: 1px solid #454b35;
+    background: #20241b;
+    transition: border-color 0.18s ease;
+  }
+
+  .search-box:focus-within {
+    border-color: var(--accent-dark);
+  }
+
+  .search-box svg {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 auto;
+    fill: none;
+    stroke: #a5ab91;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+  }
+
+  .search-box input {
+    min-width: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--text);
+    font-size: 12px;
+  }
+
+  .search-box input::placeholder {
+    color: #828875;
+  }
+
+  .search-box kbd {
+    flex: 0 0 auto;
+    color: #a1a68f;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .random-button {
+    min-width: 145px;
+    padding: 0 16px;
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: #1c2014;
+    font: 800 14px var(--font-display);
+    letter-spacing: 0.8px;
+    cursor: pointer;
+    transition: background 0.18s ease, transform 0.18s ease;
+  }
+
+  .random-button span {
+    margin-right: 5px;
+    font-size: 19px;
+    vertical-align: -1px;
+  }
+
+  .random-button:hover {
+    background: #e5ed65;
+    transform: translateY(-1px);
+  }
+
+  .names-section {
+    border: 1px solid var(--border);
+    background: rgba(29, 33, 24, 0.93);
+  }
+
+  .section-heading {
+    min-height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 0 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-marker {
+    width: 4px;
+    height: 20px;
+    background: var(--accent);
+  }
+
+  h2 {
+    font: 800 21px/1 var(--font-display);
+    letter-spacing: 1px;
+  }
+
+  .item-count {
+    padding: 4px 7px;
+    border: 1px solid #454b35;
+    color: var(--accent);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.7px;
+  }
+
+  .section-hint {
+    color: #929883;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .category-tabs {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 10px 12px;
+    overflow-x: auto;
+    border-bottom: 1px solid var(--border);
+    scrollbar-width: thin;
+    scrollbar-color: #454b35 transparent;
+  }
+
+  .category-tab {
+    min-height: 31px;
+    flex: 0 0 auto;
+    padding: 0 12px;
+    border: 1px solid transparent;
+    background: transparent;
+    color: #a7ad98;
+    font: 700 12px var(--font-display);
+    letter-spacing: 0.65px;
+    cursor: pointer;
+    transition: background 0.16s ease, color 0.16s ease;
+  }
+
+  .category-tab:hover {
+    color: #f0f0e7;
+    background: #2b3022;
+  }
+
+  .category-tab.active {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: #1c2014;
+  }
+
+  .name-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 9px;
+    padding: 12px;
+  }
+
+  .name-card {
+    min-width: 0;
+    min-height: 111px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 11px 9px;
+    border: 1px solid #3b4130;
+    background:
+      linear-gradient(130deg, rgba(255, 255, 255, 0.018), transparent 58%),
+      #252a20;
+    transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s ease;
+  }
+
+  .name-card:hover {
+    border-color: #7b8540;
+    background: #2b3022;
+    transform: translateY(-2px);
+  }
+
+  .card-topline {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .item-indicator {
+    width: 5px;
+    height: 5px;
+    flex: 0 0 auto;
+    background: #7c836b;
+  }
+
+  .card-category {
+    overflow: hidden;
+    color: #929984;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.7px;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .card-number {
+    margin-left: auto;
+    color: #606751;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .name-text {
+    min-width: 0;
+    overflow: hidden;
+    margin: 11px 0 10px;
+    color: #f0f0e7;
+    font: 700 clamp(15px, 1.6vw, 20px)/1.15 var(--font-display);
+    letter-spacing: 0.25px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .copy-button {
+    width: 100%;
+    min-height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    margin-top: auto;
+    border: 1px solid #454b36;
+    background: #20241b;
+    color: #c4c9b5;
+    font: 700 10px var(--font-body);
+    letter-spacing: 0.8px;
+    cursor: pointer;
+    transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+  }
+
+  .copy-button svg {
+    width: 14px;
+    height: 14px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .copy-button:hover,
+  .copy-button.copied {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: #1c2014;
+  }
+
+  .empty-state {
+    min-height: 220px;
+    padding: 36px 15px;
+    text-align: center;
+  }
+
+  .empty-icon {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--accent);
+    font-size: 34px;
+  }
+
+  .empty-state strong {
+    font: 800 23px var(--font-display);
+    letter-spacing: 1px;
+  }
+
+  .empty-state p {
+    margin: 7px 0 15px;
+    color: var(--muted);
+    font-size: 12px;
+  }
+
+  .empty-state button {
+    padding: 9px 12px;
+    border: 1px solid var(--accent);
+    background: transparent;
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    cursor: pointer;
+  }
+
+  .results-footer {
+    min-height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 0 14px;
+    border-top: 1px solid var(--border);
+    color: #858b78;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.7px;
+  }
+
+  .results-footer > span:first-child {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  .results-footer .status-dot {
+    width: 5px;
+    height: 5px;
+  }
+
+  .footer-separator {
+    padding: 0 4px;
+    color: var(--accent);
+  }
+
+  .quick-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 13px 0 0;
+    color: #969b88;
+    font-size: 11px;
+    line-height: 1.6;
+  }
+
+  .note-icon {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+    border: 1px solid #697146;
+    color: var(--accent);
+    font: 700 11px Georgia, serif;
+    border-radius: 50%;
+  }
+
+  .footer {
+    min-height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 16px;
+    border-top: 1px solid var(--border);
+    color: #727965;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .toast {
+    position: fixed;
+    z-index: 10;
+    right: 22px;
+    bottom: 22px;
+    max-width: calc(100vw - 44px);
+    padding: 12px 16px;
+    border: 1px solid var(--accent);
+    background: #24291c;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(8px);
+    transition: opacity 0.18s ease, transform 0.18s ease;
+  }
+
+  .toast.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  [hidden] {
+    display: none !important;
+  }
+
+  @media (min-width: 1500px) {
+    .page-shell {
+      width: min(1320px, calc(100% - 64px));
+    }
+  }
+
+  @media (max-width: 800px) {
+    .name-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .section-hint {
+      display: none;
+    }
+
+    .intro-stamp {
+      width: 72px;
+      height: 72px;
+    }
+
+    .intro-stamp strong {
+      font-size: 35px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .page-shell {
+      width: calc(100% - 24px);
+    }
+
+    .topbar {
+      min-height: 65px;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+    }
+
+    .brand-copy strong {
+      font-size: 22px;
+    }
+
+    .brand-copy small {
+      font-size: 8px;
+      letter-spacing: 0.8px;
+    }
+
+    .status-text {
+      display: none;
+    }
+
+    .intro {
+      min-height: 117px;
+      padding: 18px 0 15px;
+    }
+
+    h1 {
+      font-size: clamp(30px, 8vw, 40px);
+    }
+
+    .intro-copy > p {
+      max-width: 290px;
+      font-size: 11px;
+    }
+
+    .intro-stamp {
+      width: 57px;
+      height: 60px;
+    }
+
+    .intro-stamp strong {
+      font-size: 29px;
+    }
+
+    .intro-stamp span {
+      font-size: 6px;
+    }
+
+    .generator {
+      gap: 7px;
+      margin-bottom: 15px;
+    }
+
+    .search-box {
+      height: 44px;
+      gap: 8px;
+      padding: 0 9px;
+    }
+
+    .search-box input {
+      font-size: 11px;
+    }
+
+    .search-box kbd {
+      display: none;
+    }
+
+    .random-button {
+      min-width: 94px;
+      padding: 0 8px;
+      font-size: 12px;
+    }
+
+    .section-heading {
+      min-height: 48px;
+      padding: 0 10px;
+    }
+
+    .section-title {
+      gap: 7px;
+    }
+
+    h2 {
+      font-size: 19px;
+    }
+
+    .item-count {
+      padding: 4px 5px;
+      font-size: 8px;
+    }
+
+    .category-tabs {
+      gap: 3px;
+      padding: 8px;
+    }
+
+    .category-tab {
+      min-height: 30px;
+      padding: 0 9px;
+      font-size: 11px;
+    }
+
+    .name-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 7px;
+      padding: 8px;
+    }
+
+    .name-card {
+      min-height: 105px;
+      padding: 9px;
+    }
+
+    .name-text {
+      font-size: 19px;
+    }
+
+    .results-footer {
+      padding: 0 9px;
+      font-size: 8px;
+      letter-spacing: 0.3px;
+    }
+
+    .quick-note {
+      font-size: 10px;
+    }
+
+    .footer {
+      font-size: 8px;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+    }
+  }
+</style>
+
+<script is:inline>
+  (() => {
+    const searchInput = document.getElementById("nameSearch");
+    const categoryButtons = document.querySelectorAll("[data-filter]");
+    const cards = Array.from(document.querySelectorAll(".name-card"));
+    const itemCount = document.getElementById("itemCount");
+    const emptyState = document.getElementById("emptyState");
+    const nameGrid = document.getElementById("nameGrid");
+    const toast = document.getElementById("toast");
+    const randomButton = document.getElementById("randomButton");
+    const clearSearch = document.getElementById("clearSearch");
+
+    let activeCategory = "all";
+    let toastTimeout;
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add("visible");
+
+      window.clearTimeout(toastTimeout);
+      toastTimeout = window.setTimeout(() => {
+        toast.classList.remove("visible");
+      }, 1800);
+    }
+
+    function filterNames() {
+      const query = searchInput.value.trim().toLowerCase();
+      let visibleCount = 0;
+
+      cards.forEach((card) => {
+        const matchesCategory =
+          activeCategory === "all" ||
+          card.dataset.category === activeCategory;
+
+        const matchesSearch =
+          (card.dataset.name || "").includes(query);
+
+        const visible = matchesCategory && matchesSearch;
+        card.hidden = !visible;
+
+        if (visible) visibleCount++;
+      });
+
+      itemCount.textContent = `${visibleCount} ITEMS`;
+      emptyState.hidden = visibleCount !== 0;
+      nameGrid.hidden = visibleCount === 0;
+    }
+
+    categoryButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        activeCategory = button.dataset.filter || "all";
+
+        categoryButtons.forEach((item) => {
+          const isActive = item === button;
+          item.classList.toggle("active", isActive);
+          item.setAttribute("aria-pressed", String(isActive));
+        });
+
+        filterNames();
+      });
+    });
+
+    searchInput.addEventListener("input", filterNames);
+
+    document.querySelectorAll("[data-copy]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const name = button.dataset.copy || "";
+        const originalText = button.querySelector("span").textContent;
+
+        try {
+          if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(name);
+          } else {
+            const textArea = document.createElement("textarea");
+            textArea.value = name;
+            textArea.style.position = "fixed";
+            textArea.style.opacity = "0";
+            document.body.appendChild(textArea);
+            textArea.select();
+
+            const copied = document.execCommand("copy");
+            textArea.remove();
+
+            if (!copied) throw new Error("Copy failed");
+          }
+
+          button.classList.add("copied");
+          button.querySelector("span").textContent = "COPIED";
+          showToast(`COPIED: ${name}`);
+
+          window.setTimeout(() => {
+            button.classList.remove("copied");
+            button.querySelector("span").textContent = originalText;
+          }, 1200);
+        } catch {
+          showToast("Copy failed. Please select the name manually.");
+        }
+      });
+    });
+
+    randomButton.addEventListener("click", async () => {
+      const visibleCards = cards.filter((card) => !card.hidden);
+
+      if (visibleCards.length === 0) {
+        showToast("No names available. Try another filter.");
+        return;
+      }
+
+      const selected =
+        visibleCards[Math.floor(Math.random() * visibleCards.length)];
+
+      const copyButton = selected.querySelector("[data-copy]");
+      if (copyButton) copyButton.click();
+    });
+
+    clearSearch.addEventListener("click", () => {
+      searchInput.value = "";
+      activeCategory = "all";
+
+      categoryButtons.forEach((button) => {
+        const isActive = button.dataset.filter === "all";
+        button.classList.toggle("active", isActive);
+        button.setAttribute("aria-pressed", String(isActive));
+      });
+
+      filterNames();
+    });
+
+    filterNames();
+  })();
+</script>
